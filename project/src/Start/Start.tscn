@@ -1,0 +1,85 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/Start/Start.gd" type="Script" id=1]
+[ext_resource path="res://src/SceneB/SceneB.tscn" type="PackedScene" id=2]
+[ext_resource path="res://default_env.tres" type="Environment" id=4]
+[ext_resource path="res://src/SceneA/SceneA.tscn" type="PackedScene" id=5]
+
+[sub_resource type="World" id=2]
+environment = ExtResource( 4 )
+
+[sub_resource type="World" id=1]
+environment = ExtResource( 4 )
+
+[node name="Start" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0745098, 0.0745098, 0.0745098, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer" type="ViewportContainer" parent="Background"]
+margin_right = 400.0
+margin_bottom = 400.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="Background/ViewportContainer"]
+size = Vector2( 400, 400 )
+own_world = true
+world = SubResource( 2 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="SceneA" parent="Background/ViewportContainer/Viewport" instance=ExtResource( 5 )]
+
+[node name="Button" type="Button" parent="Background"]
+margin_left = 87.0
+margin_top = 419.0
+margin_right = 292.0
+margin_bottom = 506.0
+text = "Look at cube (2 axis same)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ViewportContainer2" type="ViewportContainer" parent="Background"]
+margin_left = 426.0
+margin_top = 3.0
+margin_right = 826.0
+margin_bottom = 404.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Viewport" type="Viewport" parent="Background/ViewportContainer2"]
+size = Vector2( 400, 400 )
+own_world = true
+world = SubResource( 1 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="SceneB" parent="Background/ViewportContainer2/Viewport" instance=ExtResource( 2 )]
+
+[node name="Button2" type="Button" parent="Background"]
+margin_left = 508.0
+margin_top = 416.0
+margin_right = 661.0
+margin_bottom = 485.0
+text = "Look at cube"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Background/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Background/Button2" to="." method="_on_Button2_pressed"]

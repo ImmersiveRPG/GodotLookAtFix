@@ -2,10 +2,7 @@
 # This file is licensed under the MIT License
 # https://github.com/ImmersiveRPG/GodotLookAtFix
 
-extends Spatial
+extends MeshInstance
 
-
-func _ready() -> void:
-	pass
-	#if can_look_at_without_error(_spat.global_transform.origin, v, Vector3.UP):
-	#	_spat.look_at(v, Vector3.UP)
+func _process(delta : float) -> void:
+	self.rotation.y += delta * 2.0
