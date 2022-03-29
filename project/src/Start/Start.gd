@@ -4,8 +4,7 @@
 
 extends Control
 
-# See Transform::set_look_at for C++
-# https://github.com/godotengine/godot/blob/3.4/core/math/transform.cpp#L78
+
 
 func safe_look_at(spatial : Spatial, target: Vector3) -> void:
 	var origin : Vector3 = spatial.global_transform.origin
@@ -15,12 +14,16 @@ func safe_look_at(spatial : Spatial, target: Vector3) -> void:
 	if origin == target:
 		return
 
-	# Find the up vector that is non parallel to
-	for up in [Vector3.RIGHT, Vector3.UP, Vector3.BACK]:
-		var v_x : Vector3 = up.cross(v_z).normalized()
+	# Find an up vector that we can rotate around
+	var up := Vector3.ZERO
+	for entry in [Vector3.RIGHT, Vector3.UP, Vector3.BACK]:
+		var v_x : Vector3 = entry.cross(v_z).normalized()
 		if v_x.length() != 0:
-			spatial.look_at(target, up)
-			return
+			up = entry
+
+	# Look at the target
+	if up != Vector3.ZERO:
+		spatial.look_at(target, up)
 
 func _on_Button_pressed() -> void:
 	var cube = $Background/ViewportContainer/Viewport/SceneA/Cube
