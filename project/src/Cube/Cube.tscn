@@ -2,13 +2,13 @@
 
 [ext_resource path="res://src/Cube/Cube.gd" type="Script" id=1]
 
-[sub_resource type="CubeMesh" id=1]
-
-[sub_resource type="SpatialMaterial" id=4]
+[sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 1, 0, 0, 1 )
 
+[sub_resource type="CubeMesh" id=1]
+material = SubResource( 2 )
+
 [node name="Cube" type="MeshInstance"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6.9681, 0, -12 )
 mesh = SubResource( 1 )
-material/0 = SubResource( 4 )
+material/0 = null
 script = ExtResource( 1 )
