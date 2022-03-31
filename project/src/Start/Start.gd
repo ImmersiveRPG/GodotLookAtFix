@@ -4,7 +4,8 @@
 
 extends Control
 
-
+onready var cube = $Background/ViewportContainer/Viewport/SceneA/Cube
+onready var arrow = $Background/ViewportContainer/Viewport/SceneA/Arrow
 
 func safe_look_at(spatial : Spatial, target: Vector3) -> void:
 	var origin : Vector3 = spatial.global_transform.origin
@@ -26,12 +27,8 @@ func safe_look_at(spatial : Spatial, target: Vector3) -> void:
 		spatial.look_at(target, up)
 
 func _on_Button_pressed() -> void:
-	var cube = $Background/ViewportContainer/Viewport/SceneA/Cube
-	var arrow = $Background/ViewportContainer/Viewport/SceneA/Arrow
-	arrow.look_at(cube.global_transform.origin, Vector3.RIGHT)
+	arrow.look_at(cube.global_transform.origin, Vector3.UP)
 
 
 func _on_Button2_pressed() -> void:
-	var cube = $Background/ViewportContainer/Viewport/SceneA/Cube
-	var arrow = $Background/ViewportContainer/Viewport/SceneA/Arrow
 	safe_look_at(arrow, cube.global_transform.origin)
