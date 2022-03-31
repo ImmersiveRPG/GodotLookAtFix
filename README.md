@@ -1,6 +1,9 @@
 # GodotLookAtFix
 
 
+[![Godot look at fix](https://img.youtube.com/vi/9q6MkGFgMTk/0.jpg)](https://www.youtube.com/watch?v=9q6MkGFgMTk, "Godot look at fix")
+
+
 # How to get around the dreaded look_at() failed error
 
 ```GDScript
