@@ -27,7 +27,7 @@ func safe_look_at(spatial : Spatial, target: Vector3) -> void:
 		spatial.look_at(target, up)
 
 func _on_Button_pressed() -> void:
-	arrow.look_at(cube.global_transform.origin, Vector3.UP)
+	arrow.look_at(cube.global_transform.origin, Vector3.RIGHT)
 
 
 func _on_Button2_pressed() -> void:
