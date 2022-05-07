@@ -17,10 +17,11 @@ func safe_look_at(spatial : Spatial, target: Vector3) -> void:
 
 	# Find an up vector that we can rotate around
 	var up := Vector3.ZERO
-	for entry in [Vector3.RIGHT, Vector3.UP, Vector3.BACK]:
+	for entry in [Vector3.UP, Vector3.RIGHT, Vector3.BACK]:
 		var v_x : Vector3 = entry.cross(v_z).normalized()
 		if v_x.length() != 0:
 			up = entry
+			break
 
 	# Look at the target
 	if up != Vector3.ZERO:
