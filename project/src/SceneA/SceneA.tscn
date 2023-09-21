@@ -1,19 +1,19 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=3 format=3 uid="uid://dx7n5sotwfefb"]
 
-[ext_resource path="res://src/Arrow/Arrow.tscn" type="PackedScene" id=1]
-[ext_resource path="res://src/Cube/Cube.tscn" type="PackedScene" id=2]
+[ext_resource type="PackedScene" uid="uid://dtieki5j6qe88" path="res://src/Arrow/Arrow.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://clg7uhdkyik1k" path="res://src/Cube/Cube.tscn" id="2"]
 
-[node name="SceneA" type="Spatial"]
+[node name="SceneA" type="Node3D"]
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( -3.09086e-08, -0.707107, 0.707107, -3.09087e-08, 0.707107, 0.707107, -1, -4.79616e-14, -4.37114e-08, 20, 22, 0 )
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-3.09086e-08, -0.707107, 0.707107, -3.09087e-08, 0.707107, 0.707107, -1, -4.79616e-14, -4.37114e-08, 20, 22, 0)
 
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1.58932e-08, 1, 0, -1, 1.58932e-08, 0, 27, 0 )
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1.58932e-08, 1, 0, -1, 1.58932e-08, 0, 27, 0)
 projection = 1
 size = 40.0
 
-[node name="Arrow" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0 )
+[node name="Arrow" parent="." instance=ExtResource("1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 0)
 
-[node name="Cube" parent="." instance=ExtResource( 2 )]
+[node name="Cube" parent="." instance=ExtResource("2")]

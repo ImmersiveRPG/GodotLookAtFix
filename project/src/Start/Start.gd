@@ -1,14 +1,14 @@
-# Copyright (c) 2022 Matthew Brennan Jones <matthew.brennan.jones@gmail.com>
+# Copyright (c) 2022-2023 Matthew Brennan Jones <matthew.brennan.jones@gmail.com>
 # This file is licensed under the MIT License
 # https://github.com/ImmersiveRPG/GodotLookAtFix
 
 extends Control
 
-onready var cube = $Background/ViewportContainer/Viewport/SceneA/Cube
-onready var arrow = $Background/ViewportContainer/Viewport/SceneA/Arrow
+@onready var cube = $Background/SubViewportContainer/SubViewport/SceneA/Cube
+@onready var arrow = $Background/SubViewportContainer/SubViewport/SceneA/Arrow
 
-func safe_look_at(spatial : Spatial, target: Vector3) -> void:
-	var origin : Vector3 = spatial.global_transform.origin
+func safe_look_at(node : Node3D, target : Vector3) -> void:
+	var origin : Vector3 = node.global_transform.origin
 	var v_z := (origin - target).normalized()
 
 	# Just return if at same position
@@ -25,7 +25,7 @@ func safe_look_at(spatial : Spatial, target: Vector3) -> void:
 
 	# Look at the target
 	if up != Vector3.ZERO:
-		spatial.look_at(target, up)
+		node.look_at(target, up)
 
 func _on_Button_pressed() -> void:
 	arrow.look_at(cube.global_transform.origin, Vector3.RIGHT)

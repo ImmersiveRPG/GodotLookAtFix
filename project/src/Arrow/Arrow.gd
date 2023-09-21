@@ -1,8 +1,8 @@
-# Copyright (c) 2022 Matthew Brennan Jones <matthew.brennan.jones@gmail.com>
+# Copyright (c) 2022-2023 Matthew Brennan Jones <matthew.brennan.jones@gmail.com>
 # This file is licensed under the MIT License
 # https://github.com/ImmersiveRPG/GodotLookAtFix
 
-extends Spatial
+extends Node3D
 
 
 func _process(delta : float) -> void:
