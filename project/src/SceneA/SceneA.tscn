@@ -1,9 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://dx7n5sotwfefb"]
+[gd_scene load_steps=6 format=3 uid="uid://dx7n5sotwfefb"]
 
 [ext_resource type="PackedScene" uid="uid://dtieki5j6qe88" path="res://src/Arrow/Arrow.tscn" id="1"]
 [ext_resource type="PackedScene" uid="uid://clg7uhdkyik1k" path="res://src/Cube/Cube.tscn" id="2"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_sjn3m"]
+
+[sub_resource type="Sky" id="Sky_senm3"]
+sky_material = SubResource("ProceduralSkyMaterial_sjn3m")
+
+[sub_resource type="Environment" id="Environment_17kgh"]
+background_mode = 2
+sky = SubResource("Sky_senm3")
+
 [node name="SceneA" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_17kgh")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(-3.09086e-08, -0.707107, 0.707107, -3.09087e-08, 0.707107, 0.707107, -1, -4.79616e-14, -4.37114e-08, 20, 22, 0)
